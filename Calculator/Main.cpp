@@ -1,22 +1,29 @@
 #include<stdlib.h>
 #include<iostream>
 #include<string>
+#include<string.h>
 #include<queue>
 #include"Scan.h"
 #include"Print.h"
+#include"Calculation.h"
 using namespace std;
- 
-int main()
+
+int main(int argc, char* argv[])
 {
 	Scan scan;
 	Print print;
-	string input;
+	Calculation calculation;
+	string input=argv[argc-1];
 	queue<string>q;
-	
-	getline(cin,input);
+
+	if(strcmp(argv[1],"-a")==0)
+	{
+		cout<<input<<"= ";
+	}
+
 	q=scan.ToStringQueue(input);
-	print.getStringQueue(q);
-	
+	calculation.getStringQueue(q);
+
 	system("pause");
 	return 0;
- } 
+}

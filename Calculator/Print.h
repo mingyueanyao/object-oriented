@@ -9,12 +9,11 @@ class Print
 	public:
 		void getStringQueue(queue<string>q)
 		{
-		    int n=q.size();
-			for(int i=0;i<n;i++)
+			int n=q.size();
+			for(int i=0; i<n; i++)
 			{
-				cout<<q.front()<<endl;
+				cout<<q.front();
 				q.pop();
 			}
 		}
-	
 };
