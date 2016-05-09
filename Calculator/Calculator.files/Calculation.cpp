@@ -7,6 +7,7 @@
 #include<stack>
 using namespace std;
 int mark;
+double result=0;
 
 stack<double>numberstack;
 stack<string>characterstack;
@@ -77,7 +78,7 @@ char position(string characterstack,string tempstr )
 	return judge[x][y];
 }
 
-void calculate(char judge,string tempstr)
+double calculate(char judge,string tempstr)
 {
 	double num,num1,num2;
 	switch(judge)
@@ -124,7 +125,9 @@ void calculate(char judge,string tempstr)
 		case'=':
 			if(tempstr[0]=='#')
 			{
-				cout<<numberstack.top()<<endl;
+			    result=numberstack.top();
+			    
+			    
 				numberstack.pop();
 				characterstack.pop();
 			}
@@ -140,7 +143,7 @@ void calculate(char judge,string tempstr)
 			system("pause");
 	}
 }
-void Calculation::getStringQueue(queue<string>q)
+double Calculation::getStringQueue(queue<string>q)
 {
 	q.push("#");
 	characterstack.push("#");
@@ -166,4 +169,6 @@ void Calculation::getStringQueue(queue<string>q)
 			numberstack.push(tempnum);
 		}
 	}
+	
+	return result;
 }

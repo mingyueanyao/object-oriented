@@ -11,7 +11,7 @@ queue<string> Scan::ToStringQueue(string input)
 	string str;
 	for(int i=0; i<input.size(); i++)
 	{
-		if(input[i] == '+'||input[i] == '-'||input[i] == '*'||input[i] == '/'||input[i] == '('||input[i] == ')')
+		if(input[i] == '+'||input[i] == '-'||input[i] == '*'||input[i] == '/'||input[i] == '('||input[i] == ')'||input[i] =='=')
 		{
 			if(!str.empty())
 			{
@@ -35,12 +35,17 @@ queue<string> Scan::ToStringQueue(string input)
 				str=str+input[i];
 			}
 
-			else
+			else if(input[i]!='=')
 			{
 				cnt=0;
 				str=input[i];
 				q.push(str);
 				str.clear();
+			}
+			
+			else
+			{
+				break;
 			}
 
 		}

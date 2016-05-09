@@ -9,5 +9,5 @@ using namespace std;
 class Calculation
 {
 	public:
-		void getStringQueue(queue<string>q);
+		double getStringQueue(queue<string>q);
 };

@@ -7,5 +7,5 @@ using namespace std;
 class Print
 {
 	public:
-		void getStringQueue(queue<string>q);	
+		void putout(double res,string in,string out);	
 };
