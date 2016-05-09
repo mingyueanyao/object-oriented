@@ -1,0 +1,37 @@
+# Project: calculator
+# Makefile created by Dev-C++ 5.10
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = ../Calculator.files/Main.o ../Calculator.files/Scan.o ../Calculator.files/Print.o ../Calculator.files/Calculation.o
+LINKOBJ  = ../Calculator.files/Main.o ../Calculator.files/Scan.o ../Calculator.files/Print.o ../Calculator.files/Calculation.o
+LIBS     = -L"E:/Dev-Cpp/MinGW64/lib32" -L"E:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -m32 -pg
+INCS     = -I"E:/Dev-Cpp/MinGW64/include" -I"E:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
+CXXINCS  = -I"E:/Dev-Cpp/MinGW64/include" -I"E:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"E:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
+BIN      = calculator.exe
+CXXFLAGS = $(CXXINCS) -m32 -pg
+CFLAGS   = $(INCS) -m32 -pg
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+../Calculator.files/Main.o: ../Calculator.files/Main.cpp
+	$(CPP) -c ../Calculator.files/Main.cpp -o ../Calculator.files/Main.o $(CXXFLAGS)
+
+../Calculator.files/Scan.o: ../Calculator.files/Scan.cpp
+	$(CPP) -c ../Calculator.files/Scan.cpp -o ../Calculator.files/Scan.o $(CXXFLAGS)
+
+../Calculator.files/Print.o: ../Calculator.files/Print.cpp
+	$(CPP) -c ../Calculator.files/Print.cpp -o ../Calculator.files/Print.o $(CXXFLAGS)
+
+../Calculator.files/Calculation.o: ../Calculator.files/Calculation.cpp
+	$(CPP) -c ../Calculator.files/Calculation.cpp -o ../Calculator.files/Calculation.o $(CXXFLAGS)
