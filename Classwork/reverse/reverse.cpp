@@ -9,7 +9,7 @@ struct Node
   int After;
   struct Node *Next;
 };
-
+ //记录题目里数据地址的标记数组
 int mark[100000]= {0};
 struct Node node[100000];
 
