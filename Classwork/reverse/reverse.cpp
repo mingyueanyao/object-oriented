@@ -84,9 +84,9 @@ int creat(struct Node *head)
 		//链表长度加一 
 		len++;
 		//从第一个数据里获取第二个地址，也就是node[1].Next
-        //利用标记数组找到该地址的数据在node数组中的位置，也就是mark[node[1].Next]
-        //把该数据整体赋值给新节点,也就是按顺序的第二个数据
-        //接下来是第三个、第四个...直到出现题目中的结束地址-1
+		//利用标记数组找到该地址的数据在node数组中的位置，也就是mark[node[1].Next]
+		//把该数据整体赋值给新节点,也就是按顺序的第二个数据
+		//接下来是第三个、第四个...直到出现题目中的结束地址-1
 		newp->Address=node[mark[tail->After]].Address;
 		newp->Date=node[mark[tail->After]].Date;
 		newp->After=node[mark[tail->After]].After;
