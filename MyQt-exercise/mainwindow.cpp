@@ -5,6 +5,27 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    connect(ui->pushButton_0,SIGNAL(clicked()),this,SLOT(pushButton_0_clicked()));
+    connect(ui->pushButton_1,SIGNAL(clicked()),this,SLOT(pushButton_1_clicked()));
+    connect(ui->pushButton_2,SIGNAL(clicked()),this,SLOT(pushButton_2_clicked()));
+    connect(ui->pushButton_3,SIGNAL(clicked()),this,SLOT(pushButton_3_clicked()));
+    connect(ui->pushButton_4,SIGNAL(clicked()),this,SLOT(pushButton_4_clicked()));
+    connect(ui->pushButton_5,SIGNAL(clicked()),this,SLOT(pushButton_5_clicked()));
+    connect(ui->pushButton_6,SIGNAL(clicked()),this,SLOT(pushButton_6_clicked()));
+    connect(ui->pushButton_7,SIGNAL(clicked()),this,SLOT(pushButton_7_clicked()));
+    connect(ui->pushButton_8,SIGNAL(clicked()),this,SLOT(pushButton_8_clicked()));
+    connect(ui->pushButton_9,SIGNAL(clicked()),this,SLOT(pushButton_9_clicked()));
+    connect(ui->pushButton_pointer,SIGNAL(clicked()),this,SLOT(pushButton_pointer_clicked()));
+    connect(ui->pushButton_left,SIGNAL(clicked()),this,SLOT(pushButton_left_clicked()));
+    connect(ui->pushButton_right,SIGNAL(clicked()),this,SLOT(pushButton_right_clicked()));
+    connect(ui->pushButton_add,SIGNAL(clicked()),this,SLOT(pushButton_add_clicked()));
+    connect(ui->pushButton_minus,SIGNAL(clicked()),this,SLOT(pushButton_minus_clicked()));
+    connect(ui->pushButton_mul,SIGNAL(clicked()),this,SLOT(pushButton_mul_clicked()));
+    connect(ui->pushButton_div,SIGNAL(clicked()),this,SLOT(pushButton_div_clicked()));
+    connect(ui->pushButton_equ,SIGNAL(clicked()),this,SLOT(pushButton_equ_clicked()));
+    connect(ui->pushButton_del,SIGNAL(clicked()),this,SLOT(pushButton_del_clicked()));
+    connect(ui->pushButton_ac,SIGNAL(clicked()),this,SLOT(pushButton_ac_clicked()));
 }
 MainWindow::~MainWindow()
 {
