@@ -1,3 +1,9 @@
+#include<stdlib.h>
+#include<iostream>
+#include<fstream>
+#include<string>
+#include<string.h>
+#include<queue>
 #include"mainwindow.h"
 #include <QApplication>
 

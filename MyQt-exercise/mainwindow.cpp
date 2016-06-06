@@ -1,5 +1,23 @@
+#include<stdlib.h>
+#include<iostream>
+#include<fstream>
+#include<string>
+#include<string.h>
+#include<queue>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include"calculation.h"
+#include"scan.h"
+
+QString input;
+string str;
+QString result;
+double out;
+queue<string>q;
+
+Scan sca;
+Calculation cal;
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -102,6 +120,12 @@ void MainWindow::pushButton_div_clicked()
 void MainWindow::pushButton_equ_clicked()
 {
     ui->lineEdit->setText(ui->lineEdit->text()+QString::QString('='));
+    input=ui->lineEdit->text();
+    str=input.toStdString();
+    q=sca.ToStringQueue(str);
+    out=cal.getStringQueue(q);
+    result=QString::number(out,'g',6);
+    ui->lineEdit->setText(result);
 }
 void MainWindow::pushButton_del_clicked()
 {
