@@ -1,0 +1,34 @@
+# Project: Calculator2.0
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = ../files/Main.o ../files/Print.o ../files/Scan.o
+LINKOBJ  = ../files/Main.o ../files/Print.o ../files/Scan.o
+LIBS     = -L"E:/Dev-Cpp/MinGW64/lib" -L"E:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"E:/Dev-Cpp/MinGW64/include" -I"E:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"E:/Dev-Cpp/MinGW64/include" -I"E:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"E:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = Calculator2.0.exe
+CXXFLAGS = $(CXXINCS) -ansi -g3
+CFLAGS   = $(INCS) -ansi -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+../files/Main.o: ../files/Main.cpp
+	$(CPP) -c ../files/Main.cpp -o ../files/Main.o $(CXXFLAGS)
+
+../files/Print.o: ../files/Print.cpp
+	$(CPP) -c ../files/Print.cpp -o ../files/Print.o $(CXXFLAGS)
+
+../files/Scan.o: ../files/Scan.cpp
+	$(CPP) -c ../files/Scan.cpp -o ../files/Scan.o $(CXXFLAGS)
