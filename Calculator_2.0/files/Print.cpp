@@ -3,11 +3,11 @@
 #include"Print.h"
 using namespace std;
 
-void Print::PrintStringQueue(queue<string> output)
+void Print::PrintStringQueue(queue<string> qs_output)
 {
-	while(!output.empty())
+	while(!qs_output.empty())
 	{
-		cout<<output.front()<<endl;
-		output.pop();
+		cout << qs_output.front() << endl;
+		qs_output.pop();
 	}
 }

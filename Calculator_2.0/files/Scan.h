@@ -5,5 +5,5 @@ using namespace std;
 class Scan
 {
 	public:
-		queue<string> ToStringQueue(string input);			
+		queue<string> ToStringQueue(string s_input);			
 };

@@ -3,68 +3,73 @@
 #include"Scan.h"
 using namespace std;
 
-queue<string> Scan::ToStringQueue(string input)
+queue<string> Scan::ToStringQueue(string s_input)
 {
-	queue<string> output;
+	queue<string> qs_output;
 	string t_str;
-	int cnt=0;
-	
-	for(int i=0;i<input.size();i++)
+	int cnt = 0;
+
+	for (int i = 0; i<s_input.size(); i++)
 	{
-		if(input[i]=='+'||input[i]=='-'||input[i]=='*'||input[i]=='/'||input[i]=='('||input[i]==')')
+		if (s_input[i] == '+' || s_input[i] == '-'
+		        || s_input[i] == '*' || s_input[i] == '/'
+		        || s_input[i] == '(' || s_input[i] == ')')
 		{
-			if(!t_str.empty())
+			if (!t_str.empty())
 			{
-				output.push(t_str);
+				qs_output.push(t_str);
 				t_str.clear();
-				cnt=0;
+				cnt = 0;
 			}
-			
-			switch(input[i])
+
+			switch (s_input[i])
 			{
 				case'+':
-					output.push("+");
+					qs_output.push("+");
 					break;
 				case'-':
-					output.push("-");
+					qs_output.push("-");
 					break;
 				case'*':
-					output.push("*");
+					qs_output.push("*");
 					break;
 				case'/':
-					output.push("/");
+					qs_output.push("/");
 					break;
 				case'(':
-					output.push("(");
+					qs_output.push("(");
 					break;
 				case')':
-					output.push(")");
-					break;		
+					qs_output.push(")");
+					break;
 			}
-			
+
 			continue;
 		}
-		
+
 		else
 		{
-			t_str=t_str+input[i];
-			
-			if(input[i]!='.')
-				cnt++;
-				
-				
-			if(cnt>10)
+			t_str = t_str + s_input[i];
+
+			if (s_input[i] != '.')
 			{
-				cout<<"数字位数超过十位"<<endl;
+				cnt++;
+			}
+
+			if (cnt > 10)
+			{
+				cout << "数字位数超过十位" << endl;
 				exit(1);
 			}
-				 
-			if(i==input.size()-1)
-				output.push(t_str);
-				
+
+			if (i == s_input.size()-1)
+			{
+				qs_output.push(t_str);
+			}
+
 			continue;
 		}
 	}
-	
-	return output;
+
+	return qs_output;
 }
