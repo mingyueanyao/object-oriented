@@ -9,7 +9,7 @@ int main()
 	Scan getStr;
 	Print printQue;
 	
-	string s_input;				//输入的字符串 
+	string s_input;    			//输入的字符串 
 	queue<string> qs_output;	//输出的队列 
 	
 	//输入算式字符串 
