@@ -8,10 +8,11 @@ using namespace std;
 class Scan
 {
 	public:
-		//接收一个字符串算式，
-		//将算式中的数字和运算符拆分并存入一个队列，
-		//最后返回这个队列。
+		//拆分接收的算式字符串 
 		queue<string> ToStringQueue(string s_input);
+		
+		//从文件中获取字符串算式 
+		bool GetFileString(ifstream& ifile, string& s_input);
 };
 
 #endif

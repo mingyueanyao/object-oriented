@@ -1,9 +1,9 @@
-/**************************************************************************  
+/*******************************************************************************
     FileName: Calculation.cpp
 	    
     Author:newmoon      
-	Version :2.0        
-	Date:16/07/25   
+	Version :2.2        
+	Date:16/07/29   
 	
     Description:
 		定义实现Calculation类中的相关方法 
@@ -17,9 +17,10 @@
     History:               
     	<author>  <time>   <version >   <desc>        
     	newmoon   16/07/27    2.0     代码规范相关   
-**************************************************************************/
+******************************************************************************/
 
 #include"Calculation.h"
+
 #include<iostream>
 #include<sstream> 
 #include<queue>
@@ -40,7 +41,7 @@ stack<string> CharStack;	//储存运算符的栈
 //"="表示遍历到底,NumStack最后一个元素即答案 
 //或是遍历到")"且栈顶为"("，应弹出栈顶继续遍历
 //"0"表示算式有误 
-				   //'+', '-', '*', '/', '(', ')', '#' 
+					//'+', '-', '*', '/', '(', ')', '#' 
 char order[7][7] = {{'>', '>', '<', '<', '<', '>', '>'}, //'+'
 					{'>', '>', '<', '<', '<', '>', '>'}, //'-'
 					{'>', '>', '>', '>', '<', '>', '>'}, //'*'
@@ -53,7 +54,7 @@ char order[7][7] = {{'>', '>', '<', '<', '<', '>', '>'}, //'+'
 /**********************************************   
     Description:返回优先级数组位置    
     Input:运算符栈的栈顶元素string CharStackTop
-		  算式当前遍历到的运算符string t_str 
+		算式当前遍历到的运算符string t_str 
     Output:无  
     Return:优先级数组的字符型元素order[x][y];   
     Others:无 
@@ -115,18 +116,18 @@ char Calculation :: GetPosition(string CharStackTop, string t_str)
 	return order[x][y];
 }
 
-/************************************   
+/******************************************   
     Description:用两个栈来计算表达式    
     Input:优先级数组元素char order
-		  算式当前遍历到的运算符string t_str
+		算式当前遍历到的运算符string t_str
     Output:无   
     Return:无  
     Others:答案存在全局变量ans里 
-*************************************/
+*******************************************/
 void Calculation :: CalculateByStack(char order, string t_str)
 {
 	char m_order;	//表示优先级数组中的位置
-	double num,num1,num2;	//用于辅助计算 
+	double num, num1, num2;	//用于辅助计算 
 	
 	//借助优先级数组进行具体计算 
 	switch (order)
@@ -203,13 +204,13 @@ void Calculation :: CalculateByStack(char order, string t_str)
 	}
 }
 
-/************************************   
+/*******************************************   
     Description:计算并返回算式的答案     
     Input:拆分好好的算式队列queue<string> qs 
     Output:无   
     Return:算式的答案   
     Others:无 
-*************************************/
+********************************************/
 double Calculation :: CalculateStringQueue(queue<string> qs)
 {
 	//辅助判断遍历结束 

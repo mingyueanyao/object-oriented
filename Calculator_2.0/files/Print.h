@@ -11,9 +11,12 @@ class Print
 		//输出ans  
 		void PrintAns(double ans);
 		//输出qs_output 
-		void PrintAns(queue<string> qs_output);
+		void PrintQueue(queue<string> qs_output);
+		//输出ans到文件
+		void PrintToFile(ofstream& ofile, double ans); 
 		//输出"s_input = ans" 
-		void PrintAns(string s_input, double ans);
+		void PrintExpreesion(string s_input, double ans);
+		
 };
 
 #endif

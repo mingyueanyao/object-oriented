@@ -1,46 +1,51 @@
-/**************************************************************************  
+/****************************************************************************************  
     FileName: Scan.cpp
 	    
     Author:newmoon      
-	Version :2.0        
-	Date:16/07/27   
+	Version :2.2        
+	Date:16/07/29   
 	
     Description:
 		定义实现Scan类中的相关方法 
 	
 	Function List:
-		queue<string> ToStringQueue(string s_input) 拆分算式中数字和运算符	
+		queue<string> ToStringQueue(string s_input) 拆分算式中数字和运算符
+		bool Scan :: GetFileString(ifstream& ifile, string& s_input)	从文件中获取算式	
 		                    
     History:               
     	<author>  <time>   <version >   <desc>        
-    	newmoon   16/07/25    2.0     代码规范相关
-		newmoon   16/07/27    2.1     区分负号和减号   
-**************************************************************************/
+		newmoon   16/07/25    2.0     代码规范相关
+		newmoon   16/07/27    2.1     区分负号和减号
+		newmoon   16/07/29    2.2     不获取算式等号   
+*****************************************************************************************/
  
 #include"Scan.h"
+
 #include<iostream>
+#include<fstream>
 #include<queue>
 using namespace std;
 
 /********************************************************   
     Description:接收一个字符串算式，
-				将算式中的数字和运算符拆分并存入一个队列， 
-				最后返回这个队列。   
+		将算式中的数字和运算符拆分并存入一个队列， 
+		最后返回这个队列。   
     Input:一个字符串类型的算式               
     Output:无   
     Return:一个元素为string对象的队列 
     Others:算式中的数字位数（包括小数位）超过十位则报错 
 ********************************************************/
-queue<string> Scan::ToStringQueue(string s_input)
-{
+queue<string> Scan :: ToStringQueue(string s_input)
+{	
+	int cnt = 0;	//统计数字位数的变量 	
+	string t_str;	//暂存连接起来的数字的中间变量
 	queue<string> qs;	//返回的队列 
-	string t_str;		//暂存连接起来的数字的中间变量 
-	int cnt = 0;		//统计数字位数的变量 
+	int len = s_input.size() - 1;	//遍历的长度，不包括等号 
 
 	//遍历整个算式字符串以拆分数字和运算符
 	//碰到数字先接到中间变量上
 	//碰到运算符则先前的数字入队 
-	for (int i = 0; i<s_input.size(); i++)
+	for (int i = 0; i < len; i++)
 	{
 		//遍历到运算符 
 		if (s_input[i] == '+' || s_input[i] == '-'
@@ -88,7 +93,9 @@ queue<string> Scan::ToStringQueue(string s_input)
 			}
 			
 			//特判算式里正常带括号的负数 
-			if (s_input[i] == '(' && s_input[i + 1] == '-')
+			if ((s_input[i] == '(' || s_input[i] == '+'
+				|| s_input[i] == '-' || s_input[i] == '*'
+				|| s_input[i] == '/') && s_input[i + 1] == '-')
 			{
 				t_str = t_str + s_input[i + 1];
 				//跳过负号继续遍历 
@@ -116,7 +123,7 @@ queue<string> Scan::ToStringQueue(string s_input)
 
 			//以数字结尾的算式需要特判
 			//避免漏掉最后一个数字 
-			if (i == s_input.size() - 1)
+			if (i == len - 1)
 			{
 				qs.push(t_str);
 			}
@@ -125,3 +132,23 @@ queue<string> Scan::ToStringQueue(string s_input)
 
 	return qs;
 }
+
+/***********************************  
+    Description:从文件中获取算式 
+    Input:文件流引用ifstream& ifile               
+    Output:无   
+    Return:布尔类型 
+    Others:正常获取即返回真 
+************************************/
+bool Scan :: GetFileString(ifstream& ifile, string& s_input)
+{
+	if (ifile >> s_input)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+ 
