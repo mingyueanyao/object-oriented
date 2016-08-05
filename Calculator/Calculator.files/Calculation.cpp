@@ -1,5 +1,4 @@
 #include"Calculation.h"
-#include<stdlib.h>
 #include<iostream>
 #include<string>
 #include<sstream>
@@ -78,7 +77,7 @@ char position(string characterstack,string tempstr )
 	return judge[x][y];
 }
 
-double calculate(char judge,string tempstr)
+void calculate(char judge,string tempstr)
 {
 	double num,num1,num2;
 	switch(judge)

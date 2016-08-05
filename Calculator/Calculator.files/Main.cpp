@@ -1,9 +1,9 @@
-#include<stdlib.h>
 #include<iostream>
 #include<fstream>
 #include<string>
 #include<string.h>
 #include<queue>
+
 #include"Scan.h"
 #include"Print.h"
 #include"Calculation.h"
@@ -56,6 +56,5 @@ int main(int argc, char* argv[])
 		print.putout(result,"0","0");
 	}
 
-	system("pause");
 	return 0;
 }
