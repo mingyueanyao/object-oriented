@@ -5,7 +5,7 @@
 #include<queue>
 using namespace std;
 
-class Print
+class Printer
 {
 	public:
 		//Êä³öans  

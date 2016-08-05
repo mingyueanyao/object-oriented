@@ -18,8 +18,8 @@
 		newmoon   16/07/29    2.2     计算器第三步 
 ***************************************************/ 
     
-#include"Scan.h"
-#include"Print.h"
+#include"Scaner.h"
+#include"Printer.h"
 #include"Calculation.h" 
 
 #include<iostream>
@@ -29,8 +29,8 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-	Scan CScan;
-	Print CPrint;
+	Scaner CScan;
+	Printer CPrint;
 	Calculation CCalculate;
 	
 	string arg_1 = argv[1];	//储存第一个参数 

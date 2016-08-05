@@ -22,7 +22,7 @@
 		newmoon   16/07/29    2.2     增加输出到文件   
 ********************************************************************************/ 
 
-#include"Print.h"
+#include"Printer.h"
 
 #include<iostream>
 #include<iomanip>
@@ -37,7 +37,7 @@ using namespace std;
     Return:无   
     Others:无 
 ************************/ 
-void Print :: PrintAns(double ans)
+void Printer :: PrintAns(double ans)
 {
 	cout << setprecision(10);
 	if(ans == 0)
@@ -57,7 +57,7 @@ void Print :: PrintAns(double ans)
     Return:无   
     Others:无 
 *************************************/    
-void Print :: PrintQueue(queue<string> qs_output)
+void Printer :: PrintQueue(queue<string> qs_output)
 {
 	//循环输出直到队列为空
 	//以此来输出整个队列 
@@ -76,7 +76,7 @@ void Print :: PrintQueue(queue<string> qs_output)
     Return:无   
     Others:等号后有空格 
 ******************************************************/ 
-void Print :: PrintExpreesion(string s_input, double ans)
+void Printer :: PrintExpreesion(string s_input, double ans)
 {
 	cout << s_input << " ";
 	cout << setprecision(10);
@@ -97,7 +97,7 @@ void Print :: PrintExpreesion(string s_input, double ans)
     Return:无   
     Others:无 
 ******************************************/
-void Print :: PrintToFile(ofstream& ofile, double ans)
+void Printer :: PrintToFile(ofstream& ofile, double ans)
 {
 	ofile << setprecision(10);
 	if(ans == 0)

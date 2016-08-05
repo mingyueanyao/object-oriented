@@ -5,7 +5,7 @@
 #include<queue>
 using namespace std;
 
-class Scan
+class Scaner
 {
 	public:
 		//拆分接收的算式字符串 

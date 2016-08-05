@@ -4,8 +4,8 @@
 CPP      = g++.exe -D__DEBUG__
 CC       = gcc.exe -D__DEBUG__
 WINDRES  = windres.exe
-OBJ      = ../files/Main.o ../files/Print.o ../files/Scan.o ../files/Calculation.o
-LINKOBJ  = ../files/Main.o ../files/Print.o ../files/Scan.o ../files/Calculation.o
+OBJ      = ../files/Main.o ../files/Printer.o ../files/Scaner.o ../files/Calculation.o
+LINKOBJ  = ../files/Main.o ../files/Printer.o ../files/Scaner.o ../files/Calculation.o
 LIBS     = -L"E:/Dev-Cpp/MinGW64/lib" -L"E:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
 INCS     = -I"E:/Dev-Cpp/MinGW64/include" -I"E:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"E:/Dev-Cpp/MinGW64/include" -I"E:/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"E:/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -27,11 +27,11 @@ $(BIN): $(OBJ)
 ../files/Main.o: ../files/Main.cpp
 	$(CPP) -c ../files/Main.cpp -o ../files/Main.o $(CXXFLAGS)
 
-../files/Print.o: ../files/Print.cpp
-	$(CPP) -c ../files/Print.cpp -o ../files/Print.o $(CXXFLAGS)
+../files/Printer.o: ../files/Printer.cpp
+	$(CPP) -c ../files/Printer.cpp -o ../files/Printer.o $(CXXFLAGS)
 
-../files/Scan.o: ../files/Scan.cpp
-	$(CPP) -c ../files/Scan.cpp -o ../files/Scan.o $(CXXFLAGS)
+../files/Scaner.o: ../files/Scaner.cpp
+	$(CPP) -c ../files/Scaner.cpp -o ../files/Scaner.o $(CXXFLAGS)
 
 ../files/Calculation.o: ../files/Calculation.cpp
 	$(CPP) -c ../files/Calculation.cpp -o ../files/Calculation.o $(CXXFLAGS)

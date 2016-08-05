@@ -1,0 +1,12 @@
+INPUT(
+./debug\main.o
+./debug\calculator.o
+./debug\printer.o
+./debug\scaner.o
+./debug\calculation.o
+./debug\fileiodialog.o
+./debug\moc_calculator.o
+./debug\moc_scaner.o
+./debug\moc_calculation.o
+./debug\moc_fileiodialog.o
+);

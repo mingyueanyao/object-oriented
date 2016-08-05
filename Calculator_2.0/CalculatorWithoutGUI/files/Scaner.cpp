@@ -19,7 +19,7 @@
 		newmoon   16/07/29    2.2     不获取算式等号   
 *****************************************************************************************/
  
-#include"Scan.h"
+#include"Scaner.h"
 
 #include<iostream>
 #include<fstream>
@@ -35,7 +35,7 @@ using namespace std;
     Return:一个元素为string对象的队列 
     Others:算式中的数字位数（包括小数位）超过十位则报错 
 ********************************************************/
-queue<string> Scan :: ToStringQueue(string s_input)
+queue<string> Scaner :: ToStringQueue(string s_input)
 {	
 	int cnt = 0;	//统计数字位数的变量 	
 	string t_str;	//暂存连接起来的数字的中间变量
@@ -140,7 +140,7 @@ queue<string> Scan :: ToStringQueue(string s_input)
     Return:布尔类型 
     Others:正常获取即返回真 
 ************************************/
-bool Scan :: GetFileString(ifstream& ifile, string& s_input)
+bool Scaner :: GetFileString(ifstream& ifile, string& s_input)
 {
 	if (ifile >> s_input)
 	{
